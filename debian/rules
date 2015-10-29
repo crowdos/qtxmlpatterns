@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ --builddirectory=build --sourcedirectory=qtxmlpatterns --parallel
+
+override_dh_auto_configure:
+	mkdir build && cd build && qmake ../qtxmlpatterns
+
+override_dh_install:
+	rm -f debian/tmp/usr/lib/*.la
+	dh_install --fail-missing
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf build
