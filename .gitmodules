@@ -1,0 +1,3 @@
+[submodule "qtxmlpatterns"]
+	path = qtxmlpatterns
+	url = git@github.com:qtproject/qtxmlpatterns.git
