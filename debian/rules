@@ -7,6 +7,7 @@
 	dh $@ --builddirectory=build --sourcedirectory=qtxmlpatterns --parallel
 
 override_dh_auto_configure:
+	touch qtxmlpatterns/.git
 	mkdir build && cd build && qmake ../qtxmlpatterns
 
 override_dh_install:
@@ -16,6 +17,7 @@ override_dh_install:
 override_dh_auto_clean:
 	dh_auto_clean
 	rm -rf build
+	rm -rf qtxmlpatterns/.git
 
 override_dh_strip:
 	dh_strip --dbg-package=qtxmlpatterns5-dbg
